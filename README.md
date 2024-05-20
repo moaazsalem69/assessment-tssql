@@ -84,10 +84,13 @@ How would this affect the current plan upgrade calculation?
 
 If We introduce defaultUsers and pricePerUser properties to the plans table, the upgrade calculation needs to consider the number of users exceeding the default limit in both the current and new plan. Here's how it would affect the calculation:
 
-1- Calculate the base prorated cost based on the price difference between the base plan prices (excluding per-user cost).
-2- Determine the number of users exceeding the default limit in both the current and new plan.
-3- Multiply the (pricePerUser) by 
+1. Calculate the base prorated cost based on the price difference between the base plan prices (excluding per-user cost).
+
+2. Determine the number of users exceeding the default limit in both the current and new plan.
+
+3. Multiply the (pricePerUser) by 
 the difference between (exceeding-users in the new plan) and (exceeding-users in the current plan).
-4- Add the base prorated cost (step 1) and the additional user cost (step 3) to get the final prorated upgrade price.
+
+4. Add the base prorated cost (step 1) and the additional user cost (step 3) to get the final prorated upgrade price.
 
 This ensures a more accurate calculation when users have subscribed to additional users beyond the default limit in their current plan.
